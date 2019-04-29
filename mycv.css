@@ -1,0 +1,69 @@
+/* Base */
+
+html{
+    box-sizing: border-box;
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: 30px 50px;
+    line-height: 1.4;
+}
+
+a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+    color: black;
+}
+
+/* Layout */
+
+.wrapper { 
+    display: grid;
+    grid-gap: auto;
+    grid-template-areas: 
+    "statement  statement   connect"
+    "id         id          connect"
+    "skills     experience  experience"
+      }
+      
+@media only screen and (max-width: 700px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "id         id          id"
+        "statement  statement   connect"
+        "skills     experience  experience"
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "id"
+        "statement"
+        "connect"
+        "experience"
+        "skills"
+    }
+}
+
+.id{
+    grid-area: id;
+}
+
+.connect{
+    grid-area: connect;
+}
+
+.statement {
+    grid-area: statement;
+}
+
+.experience {
+    grid-area: experience;
+}
+
+.skills{
+    grid-area: skills;
+}
