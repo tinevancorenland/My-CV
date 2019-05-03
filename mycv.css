@@ -1,69 +1,87 @@
 /* Base */
 
-html{
-    box-sizing: border-box;
-    font-family: Raleway, Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+html {
+  box-sizing: border-box;
+  font-family: Raleway, Arial, Helvetica, sans-serif;
+}
+h1, h2, h3 {
+  font-family: "Roboto Mono"
 }
 
-body{
-    margin: 30px 50px;
-    line-height: 1.4;
+h4, h5, h6 {
+  margin: 2px;
 }
 
-a:link, a:visited, a:hover, a:active{
-    text-decoration: none;
-    color: black;
+body {
+  margin: 50px 30px;
+  line-height: 1.4;
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 /* Layout */
-
-.wrapper { 
-    display: grid;
-    grid-gap: auto;
-    grid-template-areas: 
-    "statement  statement   connect"
-    "id         id          connect"
-    "skills     experience  experience"
-      }
-      
-@media only screen and (max-width: 700px) {
-    .wrapper {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-        "id         id          id"
-        "statement  statement   connect"
-        "skills     experience  experience"
-    }
+/* 1.Id */
+.id {
+  grid-area: id;
 }
+/* 2. Connect */
+.connect {
+  grid-area: connect;
+}
+/* 3.Statement */
+.statement {
+  grid-area: statement;
+}
+/* 4.Timeline */
+.timeline{
+  grid-area: timeline;
+}
+
+/* 5.Skills */
+.skills {
+  grid-area: skills;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-areas:
+    'statement  statement   connect'
+    'id         id          connect'
+    'skills     timeline    timeline';
+}
+
+@media only screen and (max-width: 700px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+      "id         connect"
+      "statement  statement"
+      "skills     timeline";
+  }
 
 @media only screen and (max-width: 300px) {
-    .wrapper {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-        "id"
-        "statement"
-        "connect"
-        "experience"
-        "skills"
-    }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "id"
+      "statement"
+      "connect"
+      "timeline"
+      "skills";
+  }
 }
 
-.id{
-    grid-area: id;
-}
-
-.connect{
-    grid-area: connect;
-}
-
-.statement {
-    grid-area: statement;
-}
-
-.experience {
-    grid-area: experience;
-}
-
-.skills{
-    grid-area: skills;
-}
